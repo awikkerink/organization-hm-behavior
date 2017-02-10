@@ -45,9 +45,11 @@
 						lowMin: 320, lowMid: 375, lowMax: 767,
 						highMin: 640, highMid: 750, highMax: 1534
 					}
-				};
+				},
+				selectedWidths = imageWidths[imageClass] || imageWidths.narrow;
+
 			['lowMin', 'lowMid', 'lowMax', 'highMin', 'highMid', 'highMax'].forEach(function(size) {
-				srcset += sizes[size] ? sizes[size] + ' ' + imageWidths[imageClass][size] + 'w, ' : '';
+				srcset += sizes[size] ? sizes[size] + ' ' + selectedWidths[size] + 'w, ' : '';
 			});
 			return srcset.replace(/,\s*$/, '');
 		},
