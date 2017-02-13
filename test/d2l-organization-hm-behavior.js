@@ -5,27 +5,6 @@
 describe('d2l-organization-hm-behavior', function() {
 	var
 		component,
-		enrollment = {
-			class: ['pinned', 'enrollment'],
-			rel: ['https://api.brightspace.com/rels/user-enrollment'],
-			actions: [{
-				name: 'unpin-course',
-				method: 'PUT',
-				href: '/enrollments/users/169/organizations/1',
-				fields: [{
-					name: 'pinned',
-					type: 'hidden',
-					value: false
-				}]
-			}],
-			links: [{
-				rel: ['https://api.brightspace.com/rels/organization'],
-				href: '/organizations/1'
-			}, {
-				rel: ['self'],
-				href: '/enrollments/users/169/organizations/1'
-			}]
-		},
 		image = {
 			class: ['course-image'],
 			properties: {
@@ -80,14 +59,12 @@ describe('d2l-organization-hm-behavior', function() {
 				}
 			]
 		},
-		enrollmentEntity,
 		imageEntity,
 		imageLowdEntity;
 
 	beforeEach(function() {
 		component = fixture('default-fixture');
 		var parser = document.createElement('d2l-siren-parser');
-		enrollmentEntity = parser.parse(enrollment);
 		imageEntity = parser.parse(image);
 		imageLowdEntity = parser.parse(imageLowd);
 	});
