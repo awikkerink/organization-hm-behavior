@@ -1,6 +1,6 @@
 {
-  "name": "d2l-utility-behavior",
-  "description": "Brightspace Utility Behavior",
+  "name": "d2l-organization-hm-behavior",
+  "description": "Brightspace Organization Hypermedia Behavior",
   "private": true,
   "scripts": {
     "postinstall": "bower install",
@@ -9,19 +9,19 @@
     "test:lint:wc": "polylint --no-recursion --input *.html",
     "test:no-lint": "wct -p"
   },
-  "homepage": "https://github.com/Brightspace/utility-behavior",
+  "homepage": "https://github.com/Brightspace/organization-hm-behavior",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/utility-behavior.git"
+    "url": "https://github.com/Brightspace/organization-hm-behavior.git"
   },
   "bugs": {
-    "url": "https://github.com/Brightspace/utility-behavior/issues"
+    "url": "https://github.com/Brightspace/organization-hm-behavior/issues"
   },
   "keywords": [
     "d2l",
-    "course",
-    "homepage",
-    "banner"
+    "organization",
+    "hypermedia",
+    "behavior"
   ],
   "author": "D2L Corporation",
   "license": "Apache-2.0",

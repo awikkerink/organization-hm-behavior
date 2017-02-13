@@ -1,17 +1,18 @@
 {
-  "name": "d2l-utility-behavior",
-  "description": "Brightspace Utility Behavior",
+  "name": "d2l-organization-hm-behavior",
+  "description": "Brightspace Organization HM Behavior",
   "authors": [
     "D2L Corporation"
   ],
   "license": "Apache-2.0",
   "keywords": [
     "d2l",
-  	"utility",
+  	"organization",
+  	"hypermedia",
     "behavior"
   ],
-  "homepage": "https://github.com/Brightspace/utility-behavior",
-  "main": "d2l-utility-behavior.html",
+  "homepage": "https://github.com/Brightspace/organization-hm-behavior",
+  "main": "d2l-organization-hm-behavior.html",
   "private": true,
   "ignore": [
     "**/.*",
