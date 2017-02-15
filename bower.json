@@ -1,0 +1,34 @@
+{
+  "name": "d2l-organization-hm-behavior",
+  "description": "Brightspace Organization HM Behavior",
+  "authors": [
+    "D2L Corporation"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "d2l",
+  	"organization",
+  	"hypermedia",
+    "behavior"
+  ],
+  "homepage": "https://github.com/Brightspace/organization-hm-behavior",
+  "main": "d2l-organization-hm-behavior.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".editorconfig",
+    ".eslintrc",
+    ".gitignore",
+    ".travis.yml",
+    "package.json",
+    "test",
+    "tests",
+    "/demo/"
+  ],
+  "dependencies": {
+    "d2l-siren-parser": "git://github.com/Brightspace/d2l-siren-parser-ui.git#^1.1.2",
+    "polymer": "^1.7.0"
+  }
+}

@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-siren-parser/d2l-siren-parser.html">
+
+<script>
+	'use strict';
+
+	window.D2L = window.D2L || {};
+	window.D2L.Hypermedia = window.D2L.Hypermedia || {};
+
+	/*
+	* General utility functions for parsing organization siren entities.
+	* @polymerBehavior window.D2L.Hypermedia.OrganizationHMBehavior
+	*/
+	window.D2L.Hypermedia.OrganizationHMBehavior = {
+		getImageSrcset: function(image, imageClass) {
+			if (!image) { return ''; }
+			var srcset = '',
+				sizes = this._getImageLinks(image, imageClass),
+				imageWidths = {
+					tile: {
+						lowMin: 145, lowMid: 220, lowMax: 540,
+						highMin: 290, highMid: 440, highMax: 1080
+					},
+					narrow: {
+						lowMin: 320, lowMid: 375, lowMax: 767,
+						highMin: 640, highMid: 750, highMax: 1534
+					}
+				},
+				selectedWidths = imageWidths[imageClass] || imageWidths.narrow;
+
+			['lowMin', 'lowMid', 'lowMax', 'highMin', 'highMid', 'highMax'].forEach(function(size) {
+				srcset += sizes[size] ? sizes[size] + ' ' + selectedWidths[size] + 'w, ' : '';
+			});
+			return srcset.replace(/,\s*$/, '');
+		},
+		// Returns the best available image to use as a default
+		getDefaultImageLink: function(image, imageClass) {
+			if (!image) {
+				return;
+			}
+
+			var sizes = this._getImageLinks(image, imageClass);
+			return sizes.highMax || sizes.lowMax || sizes.highMid || sizes.lowMid || sizes.highMin || sizes.lowMin;
+		},
+		_getImageLinks: function(image, imageClass) {
+			var imageLinks = image.getLinksByClass(imageClass || 'tile'),
+				sizes = {};
+			imageLinks.forEach(function(link) {
+				var size = link.hasClass('min') && 'Min' || link.hasClass('mid') && 'Mid' || link.hasClass('max') && 'Max',
+					density = link.hasClass('high-density') ? 'high' : 'low';
+				sizes[density + size] = link.href;
+			});
+			return sizes;
+		}
+	};
+</script>
