@@ -28,7 +28,6 @@
     "/demo/"
   ],
   "dependencies": {
-    "d2l-siren-parser": "git://github.com/Brightspace/d2l-siren-parser-ui.git#^1.1.2",
     "polymer": "^1.7.0"
   }
 }

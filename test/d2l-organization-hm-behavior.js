@@ -64,9 +64,8 @@ describe('d2l-organization-hm-behavior', function() {
 
 	beforeEach(function() {
 		component = fixture('default-fixture');
-		var parser = document.createElement('d2l-siren-parser');
-		imageEntity = parser.parse(image);
-		imageLowdEntity = parser.parse(imageLowd);
+		imageEntity = window.D2L.Hypermedia.Siren.Parser(image);
+		imageLowdEntity = window.D2L.Hypermedia.Siren.Parser(imageLowd);
 	});
 
 	describe('getDefaultImageLink', function() {
