@@ -28,6 +28,6 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "^2.0.0"
+    "polymer": "^1.8.0"
   }
 }
