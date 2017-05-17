@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "postinstall": "bower install",
-    "test": "npm run test:lint:js && npm run test:lint:wc && wct",
+    "test": "npm run test:lint:js && npm run test:lint:wc && npm run test:unit",
     "test:lint:js": "eslint --ext .js,.html .",
-    "test:lint:wc": "polylint --no-recursion --input *.html",
-    "test:no-lint": "wct -p"
+    "test:lint:wc": "polymer lint --rules=polymer-2-hybrid",
+    "test:unit": "polymer test"
   },
   "homepage": "https://github.com/Brightspace/organization-hm-behavior",
   "repository": {
@@ -30,8 +30,7 @@
     "eslint": "^2.4.0",
     "eslint-config-brightspace": "^0.2.1",
     "eslint-plugin-html": "^1.4.0",
-    "polylint": "^2.10.1",
-    "rimraf": "^2.5.2",
-    "web-component-tester": "^5.0.0"
+    "polymer-cli": "^1.0.0",
+    "web-component-tester": "^6.0.0"
   }
 }
