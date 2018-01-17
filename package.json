@@ -6,7 +6,7 @@
     "postinstall": "bower install",
     "test": "npm run test:lint:js && npm run test:lint:wc && npm run test:unit",
     "test:lint:js": "eslint --ext .js,.html .",
-    "test:lint:wc": "polymer lint --rules=polymer-2-hybrid",
+    "test:lint:wc": "polymer lint",
     "test:unit": "polymer test"
   },
   "homepage": "https://github.com/Brightspace/organization-hm-behavior",
