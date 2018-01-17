@@ -27,10 +27,8 @@
     "tests",
     "/demo/"
   ],
-  "dependencies": {
-    "polymer": "^1.8.0"
-  },
   "devDependencies": {
-    "web-component-tester": "^6.0.0"
+    "web-component-tester": "^6.0.0",
+    "polymer": "^2.3.1"
   }
 }
