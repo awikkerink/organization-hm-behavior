@@ -2,13 +2,14 @@
 	'use strict';
 
 	window.D2L = window.D2L || {};
-	window.D2L.Hypermedia = window.D2L.Hypermedia || {};
+	window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
+	window.D2L.PolymerBehaviors.Hypermedia = window.D2L.PolymerBehaviors.Hypermedia || {};
 
 	/*
 	* General utility functions for parsing organization siren entities.
-	* @polymerBehavior D2L.Hypermedia.OrganizationHMBehavior
+	* @polymerBehavior D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior
 	*/
-	D2L.Hypermedia.OrganizationHMBehavior = {
+	D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior = {
 		getImageSrcset: function(image, imageClass, forceImageRefresh) {
 			if (!image) { return ''; }
 			var srcset = '',

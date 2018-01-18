@@ -14,7 +14,7 @@ bower install git://github.com/Brightspace/organization-hm-behavior.git#v0.0.1
 ## Usage
 ```js
 behaviors: [
-	D2L.Hypermedia.OrganizationHMBehavior
+	D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior
 ],
 ```
 
