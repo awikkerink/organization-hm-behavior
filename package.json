@@ -3,11 +3,12 @@
   "description": "Brightspace Organization Hypermedia Behavior",
   "private": true,
   "scripts": {
-    "postinstall": "bower install",
-    "test": "npm run test:lint:js && npm run test:lint:wc && npm run test:unit",
-    "test:lint:js": "eslint --ext .js,.html .",
-    "test:lint:wc": "polymer lint --rules=polymer-2-hybrid",
-    "test:unit": "polymer test"
+    "postinstall": "polymer install --variants",
+    "test": "npm run lint && npm run test:unit",
+    "lint": "npm run lint:js && npm run lint:wc",
+    "lint:js": "eslint --ext .js,.html .",
+    "lint:wc": "polymer lint",
+    "test:unit": "polymer test --skip-plugin sauce"
   },
   "homepage": "https://github.com/Brightspace/organization-hm-behavior",
   "repository": {
