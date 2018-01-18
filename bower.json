@@ -16,17 +16,15 @@
   "private": true,
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
     ".editorconfig",
     ".eslintrc.json",
     ".gitignore",
     ".travis.yml",
     "package.json",
+    "polymer.json",
     "wct.conf.json",
     "test",
-    "tests",
-    "/demo/"
+    "demo"
   ],
   "devDependencies": {
     "web-component-tester": "^6.0.0",
