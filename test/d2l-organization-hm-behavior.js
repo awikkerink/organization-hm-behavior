@@ -94,8 +94,8 @@ describe('d2l-organization-hm-behavior', function() {
 		});
 		it('should return a banner srcset with date timestamp when forceImageRefresh true', function() {
 			var link = component.getImageSrcset(imageEntity, 'narrow', true);
-			expect(link.search('http://image.com/banner-narrow-low-density-max?timestamp=[0-9]{13}')).to.equal(0);
-			expect(link.search('http://image.com/banner-narrow-high-density-max?test=value&timestamp=[0-9]{13}')).to.equal(0);
+			expect(link.search('http://image.com/banner-narrow-low-density-max\\?timestamp=[0-9]{13}')).to.equal(0);
+			expect(link.search('http://image.com/banner-narrow-high-density-max\\?test=value&timestamp=[0-9]{13}')).to.not.equal(-1);
 		});
 	});
 });
