@@ -32,7 +32,7 @@ describe('d2l-organization-hm-behavior', function() {
 				},
 				{
 					class: ['banner', 'high-density', 'max', 'narrow'],
-					href: 'http://image.com/banner-narrow-high-density-max',
+					href: 'http://image.com/banner-narrow-high-density-max?test=value',
 					rel: ['alternate'],
 					type: 'image/jpeg'
 				}
@@ -90,11 +90,12 @@ describe('d2l-organization-hm-behavior', function() {
 		});
 		it('should return a banner srcset on the links available', function() {
 			var link = component.getImageSrcset(imageEntity, 'narrow');
-			expect(link).to.equal('http://image.com/banner-narrow-low-density-max 767w, http://image.com/banner-narrow-high-density-max 1534w');
+			expect(link).to.equal('http://image.com/banner-narrow-low-density-max 767w, http://image.com/banner-narrow-high-density-max?test=value 1534w');
 		});
 		it('should return a banner srcset with date timestamp when forceImageRefresh true', function() {
 			var link = component.getImageSrcset(imageEntity, 'narrow', true);
-			expect(link.search('http://image.com/banner-narrow-low-density-max#[0-9]{13}')).to.equal(0);
+			expect(link.search('http://image.com/banner-narrow-low-density-max\\?timestamp=[0-9]{13}')).to.equal(0);
+			expect(link.search('http://image.com/banner-narrow-high-density-max\\?test=value&timestamp=[0-9]{13}')).to.not.equal(-1);
 		});
 	});
 });

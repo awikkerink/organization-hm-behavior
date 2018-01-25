@@ -13,6 +13,8 @@
 		getImageSrcset: function(image, imageClass, forceImageRefresh) {
 			if (!image) { return ''; }
 			var srcset = '',
+				separator,
+				forceRefreshParam = '',
 				sizes = this._getImageLinks(image, imageClass),
 				imageWidths = {
 					tile: {
@@ -25,10 +27,16 @@
 					}
 				},
 				selectedWidths = imageWidths[imageClass] || imageWidths.narrow,
-				dateTimeString = forceImageRefresh ? '#' + new Date().getTime() : '';
+				dateTimeString = forceImageRefresh ? new Date().getTime() : '';
 
 			['lowMin', 'lowMid', 'lowMax', 'highMin', 'highMid', 'highMax'].forEach(function(size) {
-				srcset += sizes[size] ? sizes[size] + dateTimeString + ' ' + selectedWidths[size] + 'w, ' : '';
+				if (sizes[size]) {
+					if (forceImageRefresh) {
+						separator = sizes[size].split('?')[1] ? '&' : '?';
+						forceRefreshParam = separator + 'timestamp=' + dateTimeString;
+					}
+					srcset += sizes[size] + forceRefreshParam + ' ' + selectedWidths[size] + 'w, ';
+				}
 			});
 			return srcset.replace(/,\s*$/, '');
 		},
