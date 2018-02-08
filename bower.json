@@ -29,6 +29,6 @@
   "devDependencies": {
     "web-component-tester": "^6.0.0",
     "polymer": "^2.3.1",
-    "siren-parser-import": "Brightspace/siren-parser-import#^6.5.0"
+    "siren-parser-import": "Brightspace/siren-parser-import#^7.0.0"
   }
 }
