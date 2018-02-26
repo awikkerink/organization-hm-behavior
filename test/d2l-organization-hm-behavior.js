@@ -59,16 +59,27 @@ describe('d2l-organization-hm-behavior', function() {
 				}
 			]
 		},
+		imageLinked = {
+			rel: ['https://api.brightspace.com/rels/organization-image'],
+			href: 'http://image.com/some-image'
+		},
 		imageEntity,
-		imageLowdEntity;
+		imageLowdEntity,
+		imageLinkedEntity;
 
 	beforeEach(function() {
 		component = fixture('default-fixture');
 		imageEntity = window.D2L.Hypermedia.Siren.Parse(image);
 		imageLowdEntity = window.D2L.Hypermedia.Siren.Parse(imageLowd);
+		imageLinkedEntity = window.D2L.Hypermedia.Siren.Parse({ entities: [imageLinked] })
+			.getSubEntityByRel('https://api.brightspace.com/rels/organization-image');
 	});
 
 	describe('getDefaultImageLink', function() {
+		it('should return undefined if a linked entity is passed in', function() {
+			var link = component.getDefaultImageLink(imageLinkedEntity);
+			expect(link).to.be.undefined;
+		});
 		it('should return high-density max image as a default image', function() {
 			var link = component.getDefaultImageLink(imageEntity, 'tile');
 			expect(link).to.equal(image.links[1].href);
@@ -84,6 +95,10 @@ describe('d2l-organization-hm-behavior', function() {
 	});
 
 	describe('getImageSrcset', function() {
+		it('should return undefined if a linked entity is passed in', function() {
+			var link = component.getImageSrcset(imageLinkedEntity);
+			expect(link).to.be.undefined;
+		});
 		it('should return a tile srcset based on the links available', function() {
 			var link = component.getImageSrcset(imageEntity, 'tile');
 			expect(link).to.equal('http://image.com/tile-low-density-max 540w, http://image.com/tile-high-density-max 1080w');
