@@ -26,7 +26,7 @@
 			var srcset = '',
 				separator,
 				forceRefreshParam = '',
-				sizes = this._getImageLinks(image, imageClass),
+				sizes = this._getBestImageLinks(image, imageClass),
 				imageWidths = {
 					tile: {
 						lowMin: 145, lowMid: 220, lowMax: 540,
@@ -64,18 +64,31 @@
 				return;
 			}
 
-			var sizes = this._getImageLinks(image, imageClass);
+			var sizes = this._getBestImageLinks(image, imageClass);
 			return sizes.highMax || sizes.lowMax || sizes.highMid || sizes.lowMid || sizes.highMin || sizes.lowMin;
 		},
 		_getImageLinks: function(image, imageClass) {
 			var imageLinks = image.getLinksByClass(imageClass || 'tile'),
-				sizes = {};
+				sizesByType = {};
 			imageLinks.forEach(function(link) {
+				var sizes = sizesByType[link.type] = sizesByType[link.type] || {};
 				var size = link.hasClass('min') && 'Min' || link.hasClass('mid') && 'Mid' || link.hasClass('max') && 'Max',
 					density = link.hasClass('high-density') ? 'high' : 'low';
 				sizes[density + size] = link.href;
 			});
-			return sizes;
+			return sizesByType;
+		},
+		_getBestImageLinks: function(image, imageClass) {
+			var linksByType = this._getImageLinks(image, imageClass);
+
+			var jpegLinks = linksByType['image/jpeg'];
+			if (jpegLinks) {
+				return jpegLinks;
+			}
+
+			for (var type in linksByType) {
+				return linksByType[type];
+			}
 		}
 	};
 </script>
