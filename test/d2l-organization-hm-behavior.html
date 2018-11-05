@@ -3,11 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../@babel/polyfill/browser.js"></script>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
 
-		<link rel="import" href="consumer-element.html">
-		<link rel="import" href="../../siren-parser-import/siren-parser.html">
+		<script type="module" src="./consumer-element.js"></script>
+		<script type="module" src="../../siren-parser/global.js"></script>
 	</head>
 	<body>
 		<test-fixture id="default-fixture">
@@ -16,6 +17,6 @@
 			</template>
 		</test-fixture>
 
-		<script src="d2l-organization-hm-behavior.js"></script>
+		<script src="./d2l-organization-hm-behavior.js"></script>
 	</body>
 </html>

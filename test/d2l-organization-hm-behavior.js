@@ -1,7 +1,3 @@
-/* global describe, it, expect, fixture, beforeEach */
-
-'use strict';
-
 describe('d2l-organization-hm-behavior', function() {
 	var
 		component,
