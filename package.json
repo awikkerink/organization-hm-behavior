@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "postinstall": "polymer install --variants",
-    "test": "npm run lint && npm run test:unit",
+    "test": "npm run lint && npm run test:polymer:local",
     "lint": "npm run lint:js && npm run lint:wc",
     "lint:js": "eslint --ext .js,.html .",
     "lint:wc": "polymer lint",
-    "test:unit": "polymer test --skip-plugin sauce"
+    "test:polymer:local": "polymer test --skip-plugin sauce",
+    "test:polymer:sauce": "polymer test --skip-plugin local"
   },
   "homepage": "https://github.com/Brightspace/organization-hm-behavior",
   "repository": {
@@ -27,9 +28,10 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "eslint": "^4.15.0",
-    "eslint-config-brightspace": "^0.4.0",
-    "eslint-plugin-html": "^4.0.1",
-    "polymer-cli": "^1.5.7"
+    "chromedriver": "^2.44.0",
+    "eslint": "^5.9.0",
+    "eslint-config-brightspace": "^0.4.1",
+    "eslint-plugin-html": "^5.0.0",
+    "polymer-cli": "^1.9.1"
   }
 }
