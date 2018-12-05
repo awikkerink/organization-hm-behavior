@@ -62,6 +62,9 @@ D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior = {
 		}
 
 		var sizes = this._getBestImageLinks(image, imageClass);
+		if (!sizes) {
+			return;
+		}
 		return sizes.highMax || sizes.lowMax || sizes.highMid || sizes.lowMid || sizes.highMin || sizes.lowMin;
 	},
 	_getImageLinks: function(image, imageClass) {
