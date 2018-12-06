@@ -23,7 +23,6 @@ D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior = {
 		var srcset = '',
 			separator,
 			forceRefreshParam = '',
-			sizes = this._getBestImageLinks(image, imageClass),
 			imageWidths = {
 				tile: {
 					lowMin: 145, lowMid: 220, lowMax: 540,
@@ -36,6 +35,11 @@ D2L.PolymerBehaviors.Hypermedia.OrganizationHMBehavior = {
 			},
 			selectedWidths = imageWidths[imageClass] || imageWidths.narrow,
 			dateTimeString = forceImageRefresh ? new Date().getTime() : '';
+
+		var sizes = this._getBestImageLinks(image, imageClass);
+		if (!sizes) {
+			return;
+		}
 
 		['lowMin', 'lowMid', 'lowMax', 'highMin', 'highMid', 'highMax'].forEach(function(size) {
 			if (sizes[size]) {
